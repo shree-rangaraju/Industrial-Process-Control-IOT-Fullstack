@@ -76,12 +76,11 @@ const resetData = () => {
 
 //perfect ones
 dataRef.on("value", () => {
-  console.log("changed");
   pullData();
 });
 
 const updateProgress = (progress) => {
-  const percentage = 100 - ((progress - 0) / (30 - 0)) * 100;
+  const percentage = 100 - ((progress - 0) / (30 - 0)) * 100 + 20;
   progressBar.style.height = percentage + "%";
 };
 
