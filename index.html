@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icons8-storage-tank-16.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industrial Process Control</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>Tank Process Control</h1>
+      <p>
+        Motor Status: <span id="motorStatus" class="statusIndicator"></span>
+      </p>
+      <div class="flex">
+        <button type="button" class="changeMotorStatus button-30" value="1">
+          Turn On
+        </button>
+        <button type="button" class="changeMotorStatus button-30" value="0">
+          Turn Off
+        </button>
+      </div>
+      <p>
+        Current Level: <span id="currentLevel" class="statusIndicator"></span>
+        <span class="statusIndicator">cm</span>
+      </p>
+      <div class="flex rangeContainer">
+        <div class="range flex flex-column">
+          <p>30 cm-</p>
+          <p>15 cm-</p>
+          <p>&nbsp;0 cm-</p>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressBar"></div>
+          <div class="progress-bar" id="progressBarMinSetPoint"></div>
+          <div class="progress-bar" id="progressBarMaxSetPoint"></div>
+        </div>
+      </div>
+      <div class="colorCode flex flex-column">
+        <div class="flex">
+          <div class="green"></div>
+          - Minimum Level Indicator
+        </div>
+        <div class="flex">
+          <div class="red"></div>
+          - Maximum Level Indicator
+        </div>
+      </div>
+      <div class="flex flex-column levelContainer">
+        <div class="flex flex-column">
+          <label for="minLevel"
+            >Minimum Level:
+            <span id="minLevelValue" class="statusIndicator"></span>
+            <span class="statusIndicator">cm</span></label
+          >
+          <input
+            type="number"
+            id="minLevel"
+            name="minLevel"
+            min="0"
+            max="30"
+            class="number-input"
+            placeholder="Set new Minimum"
+          />
+        </div>
+        <div class="flex flex-column">
+          <label for="maxLevel"
+            >Maximum Level:
+            <span id="maxLevelValue" class="statusIndicator"></span>
+            <span class="statusIndicator">cm</span></label
+          >
+          <input
+            type="number"
+            id="maxLevel"
+            name="maxLevel"
+            min="0"
+            max="30"
+            class="number-input"
+            placeholder="Set new Maximum"
+          />
+        </div>
+        <button type="button" id="setLevel" class="button-30">Set Level</button>
+      </div>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+
+<!-- Storage Tank icon by Icons8 https://icons8.com/icon/54936/storage-tank-->
