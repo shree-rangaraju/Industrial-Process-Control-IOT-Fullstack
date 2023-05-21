@@ -49,9 +49,9 @@ const pullData = () => {
       minLevelValue.textContent = data.TankData.minLevel;
       maxLevelValue.textContent = data.TankData.maxLevel;
       progressBarMinSetPoint.style.top =
-        80 - convertRange(data.TankData.minLevel, 0, 30, 0, 80) + "%";
+        80 - convertRange(data.TankData.minLevel, 0, 20, 0, 80) + "%";
       progressBarMaxSetPoint.style.top =
-        80 - convertRange(data.TankData.maxLevel, 0, 30, 0, 80) + "%";
+        80 - convertRange(data.TankData.maxLevel, 0, 20, 0, 80) + "%";
     })
     .catch((error) => {
       console.error("Failed to pull data:", error);
@@ -80,7 +80,7 @@ dataRef.on("value", () => {
 });
 
 const updateProgress = (progress) => {
-  const percentage = 100 - ((progress - 0) / (30 - 0)) * 100;
+  const percentage = 100 - ((progress - 0) / (20 - 0)) * 100;
   progressBar.style.height = percentage + "%";
 };
 
@@ -97,10 +97,10 @@ for (let i = 0; i < changeMotorStatus.length; i++) {
 }
 
 setLevel.addEventListener("click", () => {
-  if (Number(minLevel.value) < 0 || Number(minLevel.value) > 30) {
-    alert("Warning! Cannot Exceed Minimum Level range of Values(0-30)");
-  } else if (Number(maxLevel.value) < 0 || Number(maxLevel.value) > 30) {
-    alert("Warning! Cannot Exceed Maximum Level range of Values(0-30)");
+  if (Number(minLevel.value) < 0 || Number(minLevel.value) > 20) {
+    alert("Warning! Cannot Exceed Minimum Level range of Values(0-20)");
+  } else if (Number(maxLevel.value) < 0 || Number(maxLevel.value) > 20) {
+    alert("Warning! Cannot Exceed Maximum Level range of Values(0-20)");
   } else if (Number(minLevel.value) > Number(maxLevel.value)) {
     alert("Warning! Minimum level cannot be greater than Maximum level!");
   } else {
